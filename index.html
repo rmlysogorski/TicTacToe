@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css" >
+</head>
+<body>
+
+<h2 id="title">Tic Tac Toe</h2>
+
+<div id="boardWrapper">
+    <div id="board">
+        <div id="status">It is <span id="turn">X</span>'s turn.</div>
+        <div id="row1">
+            <button class="square" id="sq1" onClick="setXorO(this.id)"></button><!--
+            --><button class="square" id="sq2" onClick="setXorO(this.id)"></button><!--
+            --><button class="square" id="sq3" onClick="setXorO(this.id)"></button>
+        </div>
+        <div id="row2">
+            <button class="square" id="sq4" onClick="setXorO(this.id)"></button><!--
+            --><button class="square" id="sq5" onClick="setXorO(this.id)"></button><!--
+            --><button class="square" id="sq6" onClick="setXorO(this.id)"></button>
+        </div>
+        <div id="row3">
+            <button class="square" id="sq7" onClick="setXorO(this.id)"></button><!--
+            --><button class="square" id="sq8" onClick="setXorO(this.id)"></button><!--
+            --><button class="square" id="sq9" onClick="setXorO(this.id)"></button>
+        </div>
+        <div id="again">
+            <button id="reset" onClick="resetGame()">Reset</button>
+        </div>
+    </div>
+</div>
+
+<script src="TicTacToe.js"></script>
+
+</body>
+</html> 
