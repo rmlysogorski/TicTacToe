@@ -11,6 +11,7 @@
   display: inline-block;
   font-family: monospace;
   font-size: 3em;
+  outline: none;
 }
 
 #title{
@@ -30,7 +31,7 @@
     color:crimson;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1em;
-    padding-bottom: 1em;
+    padding-bottom: 1.5em;
 }
 
 #reset{
@@ -40,7 +41,7 @@
   width: 5em;
   height: 2em;
   padding: 0;
-  margin-top: 1em;
+  margin-top: 1.5em;
   text-align: center;
   text-decoration: none;
   display: inline-block;

@@ -1,6 +1,26 @@
 let XsTurn = true;
 let won = false;
 
+//This function checks if the game is not won
+//and if there is nothing in that square
+//If these conditions are true
+//It draws a gray X or O depending on the turn
+function mouseoverXorO(id){
+    if(!won && document.getElementById(id).innerHTML === ""){
+            document.getElementById(id).style.color = "gray";
+            document.getElementById(id).innerHTML = XsTurn ? "X" : "O";
+        }
+}
+
+//This function checks if the square's text color is gray
+//If it is it resets the color to black and empties the square
+function mouseoutXorO(id){
+    if(document.getElementById(id).style.color === "gray"){
+            document.getElementById(id).style.color = "black";
+            document.getElementById(id).innerHTML = "";
+        }
+}
+
 //This function first checks that the game is not won
 //Then makes sure the button has not already been filled
 //If those conditions are true, the function will
@@ -9,19 +29,17 @@ let won = false;
 //Change the XsTurn bool
 //Accordingly, change the turn element to reflect the current turn
 function setXorO(id){
-    if(!won &&
-        document.getElementById(id).innerHTML != "X" &&
-        document.getElementById(id).innerHTML != "O"
-        ){
-            document.getElementById(id).innerHTML = XsTurn ? "X" : "O";
-            checkWinner();
-            if(!won){
-                XsTurn = !XsTurn;
-                document.getElementById("turn").innerHTML = XsTurn ? "X" : "O";
-            }
-            else{
-                document.getElementById("status").innerHTML = XsTurn ? "X won!" : "O won!";
-            }
+    if(!won && document.getElementById(id).style.color === "gray"){
+        document.getElementById(id).style.color = "black";
+        document.getElementById(id).innerHTML = XsTurn ? "X" : "O";
+        checkWinner();
+        if(!won){
+            XsTurn = !XsTurn;
+            document.getElementById("turn").innerHTML = XsTurn ? "X" : "O";
+        }
+        else{
+            document.getElementById("status").innerHTML = XsTurn ? "X won!" : "O won!";
+        }
     }
 }
 
@@ -35,9 +53,10 @@ function checkWinner(){
     var arr = [];
     var player = XsTurn ? "X" : "O";
     var empty = false;
+
     for(i=1; i < 10; i++){
         arr[i] = document.getElementById("sq" + i).innerHTML;
-        if(arr[i] === undefined || arr[i] === ""){
+        if(arr[i] === ""){
             empty = true;
         }
     }
@@ -81,6 +100,7 @@ function resetGame(){
     //the buttons are emptied
     for(i = 1; i < 10; i++){
         document.getElementById("sq" + i).innerHTML = "";
+        document.getElementById("sq" + i).style.color = "black";
     }
 
     //resets the turn status indicator
