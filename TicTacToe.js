@@ -34,8 +34,12 @@ function setXorO(id){
 function checkWinner(){
     var arr = [];
     var player = XsTurn ? "X" : "O";
+    var empty = false;
     for(i=1; i < 10; i++){
-    	arr[i] = document.getElementById("sq" + i).innerHTML;
+        arr[i] = document.getElementById("sq" + i).innerHTML;
+        if(arr[i] === undefined || arr[i] === ""){
+            empty = true;
+        }
     }
 
     //Checks the three horizontal rows
@@ -51,6 +55,11 @@ function checkWinner(){
     //Checks the two Diagonal rows
     checkIndices(player, arr, 1, 5, 9);
     checkIndices(player, arr, 3, 5, 7);
+
+    //Check for a tie
+    if(!empty && !won){
+        document.getElementById("status").innerHTML = "It's a tie!";
+    }
 }
 
 //Player is either "X" or "O" based on the current turn
