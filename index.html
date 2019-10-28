@@ -5,7 +5,7 @@
 </head>
 <body onload="resetGame();">
 
-<h2 id="title">Tic Tac Toe</h2>
+<h2 id="title">Tic <span style="color: crimson;">Tac</span> Toe</h2>
 
 <div id="boardWrapper">
     <div id="board">
@@ -26,7 +26,9 @@
             --><button class="square" id="sq9" onClick="setXorO(this.id)" onmouseover="mouseoverXorO(this.id)" onmouseout="mouseoutXorO(this.id)" style="border-right: none;border-bottom: none;"></button>
         </div>
         <div id="again">
-            <button id="reset" onClick="resetGame()">Reset</button>
+            <p id="X">X: 0</p>
+            <button id="reset" onClick="resetGame()">Play Again</button>
+            <p id="O">O: 0</p>
         </div>
     </div>
 </div>

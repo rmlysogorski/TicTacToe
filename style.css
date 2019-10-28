@@ -1,6 +1,7 @@
 .square {
   background-color: white;
-  border: 1px solid black;
+  border: 2px solid black;
+  margin-bottom: -1px;
   width: 3em;
   height: 3em;
   padding: 0;
@@ -28,7 +29,7 @@
 }
 
 #status{
-    color:crimson;
+    color:black;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: 1em;
     padding-bottom: 1.5em;
@@ -38,13 +39,30 @@
   background-color: black;
   color: white;
   border: none;
-  width: 5em;
+  width: 9em;
   height: 2em;
   padding: 0;
   margin-top: 1.5em;
   text-align: center;
   text-decoration: none;
+  transform: translateY(-0.5em);
   display: inline-block;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 1em;
+}
+
+#X{
+    font-family: monospace;
+    font-size: 3em;
+    color: royalblue;
+    display: inline;
+    margin-right: 1em;
+}
+
+#O{
+    font-family: monospace;
+    font-size: 3em;
+    color: crimson;
+    display: inline;
+    margin-left: 1em;
 }

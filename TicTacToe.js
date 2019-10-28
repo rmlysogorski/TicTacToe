@@ -1,5 +1,7 @@
 let XsTurn = true;
 let won = false;
+let Xscore = 0;
+let Oscore = 0;
 
 //This function checks if the game is not won
 //and if there is nothing in that square
@@ -16,7 +18,7 @@ function mouseoverXorO(id){
 //If it is it resets the color to black and empties the square
 function mouseoutXorO(id){
     if(document.getElementById(id).style.color === "gray"){
-            document.getElementById(id).style.color = "black";
+            document.getElementById(id).style.color = "royalblue";
             document.getElementById(id).innerHTML = "";
         }
 }
@@ -30,7 +32,7 @@ function mouseoutXorO(id){
 //Accordingly, change the turn element to reflect the current turn
 function setXorO(id){
     if(!won && document.getElementById(id).style.color === "gray"){
-        document.getElementById(id).style.color = "black";
+        document.getElementById(id).style.color = XsTurn ? "royalblue" : "crimson";
         document.getElementById(id).innerHTML = XsTurn ? "X" : "O";
         checkWinner();
         if(!won){
@@ -87,7 +89,12 @@ function checkWinner(){
 function checkIndices(player, arr, index1, index2, index3){
     if(arr[index1] === player && arr[index2] === player && arr[index3] === player){
         won = true;
-        console.log(player + " wins!");
+        if(won === true){
+            document.getElementById("sq" + index1).style.backgroundColor = "rgb(255, 255, 147)";
+            document.getElementById("sq" + index2).style.backgroundColor = "rgb(255, 255, 147)";
+            document.getElementById("sq" + index3).style.backgroundColor = "rgb(255, 255, 147)";
+            setScore(player);
+        }
     }
 }
 
@@ -98,11 +105,27 @@ function resetGame(){
     won = false;
 
     //the buttons are emptied
+    //and colors are initialized
     for(i = 1; i < 10; i++){
         document.getElementById("sq" + i).innerHTML = "";
-        document.getElementById("sq" + i).style.color = "black";
+        document.getElementById("sq" + i).style.color = "royalblue";
+        document.getElementById("sq" + i).style.backgroundColor = "white";
     }
 
     //resets the turn status indicator
     document.getElementById("status").innerHTML = "It is <span id='turn'>X</span>'s turn.";
+
+}
+
+function setScore(player){
+    document.getElementById(player).innerHTML = "";
+
+    if(player === "X"){
+        Xscore++;
+        document.getElementById(player).innerHTML = "X: " + Xscore;
+    }
+    else{
+        Oscore++;
+        document.getElementById(player).innerHTML = "O: " + Oscore;
+    }
 }
